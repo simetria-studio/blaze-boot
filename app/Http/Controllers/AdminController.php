@@ -7,6 +7,7 @@ use App\Models\Mails;
 use App\Mail\UserMail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -66,8 +67,10 @@ class AdminController extends Controller
         $user->save();
 
         return redirect()->back()->with('success', 'Usuário editado com sucesso');
-
     }
-
-
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/');
+    }
 }

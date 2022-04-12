@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +33,8 @@ Route::get('/users', [AdminController::class, 'users'])->name('users')->middlewa
 Route::post('user/status/{id}', [AdminController::class, 'userStatus'])->name('user.status')->middleware('auth.check.permission');
 Route::get('/user/edit/{id}', [AdminController::class, 'userEdit'])->name('user.edit')->middleware('auth.check.permission');
 Route::post('/user/update/{id}', [AdminController::class, 'userUpdate'])->name('user.update')->middleware('auth.check.permission');
+
+
+Route::any('/sair', [AdminController::class, 'logout'])->name('sair');
+
+

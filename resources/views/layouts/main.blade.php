@@ -59,10 +59,10 @@
 
                                 @csrf
                                 <div class="form-group">
-                                    <input type="email" placeholder="email"
-                                        value="{{ auth()->user()->email }}" class="form-control"
-                                        id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
-                                        <input type="hidden" name="email" value="{{ auth()->user()->email }}">
+                                    <input type="email" placeholder="email" value="{{ auth()->user()->email }}"
+                                        class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        disabled>
+                                    <input type="hidden" name="email" value="{{ auth()->user()->email }}">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="name" class="form-control"
@@ -79,8 +79,13 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                         <button type="submit" class="btn btn-primary">Salvar</button>
+
                     </div>
                 </form>
+                <div class="text-left m-3">
+                      <a href="{{ route('sair') }}"> <button class="btn btn-primary" type="submit" >Sair</button></a>
+
+                </div>
             </div>
         </div>
     </div>
