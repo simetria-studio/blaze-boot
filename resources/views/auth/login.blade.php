@@ -16,7 +16,8 @@
                         <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email">
                     </div>
                     <div class="form-group my-3">
-                        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Senha">
+                        <input type="password" class="form-control" name="password" id="exampleInputPassword1"
+                            placeholder="Senha">
                     </div>
                     <div class="text-center my-3">
                         <button type="submit" class="btn-index">ENTRAR</button>
@@ -25,14 +26,15 @@
             </div>
             <div class="icons-grid">
                 <div>
-                    <img src="{{ asset('assets/img/instagram.svg') }}" alt="">
+                   <a href="https://www.instagram.com/blaze.boot/" target="_blank"><img src="{{ asset('assets/img/instagram.svg') }}" alt=""></a>
                 </div>
                 <div>
-                    <img src="{{ asset('assets/img/whatsapp.svg') }}" alt="">
+                   <a href="https://api.whatsapp.com/send?phone=5521965711435&text=Quero%20comprar%20o%20boot" target="_blank"> <img src="{{ asset('assets/img/whatsapp.svg') }}" alt=""></a>
                 </div>
             </div>
             <div class="text-center my-3 mb-3 pb-5">
-                <button type="button" class="btn-green">QUERO COMPRAR O BOT AGORA!</button>
+                <a href="https://api.whatsapp.com/send?phone=5521965711435&text=Quero%20comprar%20o%20boot" target="_blank"> <button
+                        type="button" class="btn-green">QUERO COMPRAR O BOT AGORA!</button></a>
             </div>
         </div>
     </div>
