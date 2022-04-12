@@ -51,7 +51,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('user.update', auth()->user()->id) }}" method="post">
+                <form action="{{ route('update.user', auth()->user()->id) }}" method="post">
                     <div class="modal-body">
                         <div class="">
                             <div class="container mt-4 form">
@@ -69,7 +69,7 @@
                                         value="{{ auth()->user()->name }}" placeholder="Nome">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="password" class="form-control" placeholder="Senha">
+                                    <input type="password" name="password" class="form-control" placeholder="Senha">
                                 </div>
 
 
@@ -83,8 +83,7 @@
                     </div>
                 </form>
                 <div class="text-left m-3">
-                      <a href="{{ route('sair') }}"> <button class="btn btn-primary" type="submit" >Sair</button></a>
-
+                      <a  class="btn btn-primary" href="{{ route('sair') }}">Sair</a>
                 </div>
             </div>
         </div>

@@ -60,11 +60,21 @@ class AdminController extends Controller
     }
     public function userUpdate(Request $request, $id)
     {
+        dd($request->input('password'));
         $user = User::find($id);
-        $user->email = $request->input('email');
-        $user->name = $request->input('name');
-        $user->password = Hash::make($request->input('password'));
-        $user->save();
+
+
+        if (!empty($request->input('password'))) {
+            $user->email = $request->input('email');
+            $user->name = $request->input('name');
+            $user->password = Hash::make($request->input('password'));
+            $user->save();
+        } else {
+            $user->email = $request->input('email');
+            $user->name = $request->input('name');
+            $user->save();
+        }
+
 
         return redirect()->back()->with('success', 'Usuário editado com sucesso');
     }

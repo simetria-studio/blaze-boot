@@ -34,6 +34,7 @@ Route::post('user/status/{id}', [AdminController::class, 'userStatus'])->name('u
 Route::get('/user/edit/{id}', [AdminController::class, 'userEdit'])->name('user.edit')->middleware('auth.check.permission');
 Route::post('/user/update/{id}', [AdminController::class, 'userUpdate'])->name('user.update')->middleware('auth.check.permission');
 
+Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'userUpdate'])->name('update.user');
 
 Route::any('/sair', [AdminController::class, 'logout'])->name('sair');
 
