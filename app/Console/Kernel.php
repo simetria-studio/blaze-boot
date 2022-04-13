@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->exec('node ../leilosoc-webscraping')->everyMinute();
+        $schedule->exec('node ../leilosoc-webscraping')->cron('*/2 * * * *');
     }
 
     /**
