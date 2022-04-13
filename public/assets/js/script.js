@@ -138,30 +138,26 @@ function addData(chart) {
 
 setInterval(function () {
 
-    var number = Math.floor((Math.random() * 14));
-    var classe = Math.floor((Math.random() * 99));
+    $.ajax({
+        url: 'getDados',
+        success: function (data) {
+            $.each(data, (key, value) => {
+                    $('.result').append(`<div class="entry">
+                    <div class="roulette-tile">
+                        <div class="sm-box ${value.class_name}">
+                            <div class="number">${value.number}
+                            </div>
+                        </div>
+                    </div>
+                </div>`)
+            });
+        },
 
-    var newclass;
-    if (classe >= 0 && classe <= 5) {
-        newclass = 'white';
-    }
-    if (classe > 5 && classe <= 55) {
-        newclass = 'red';
-    }
-    if (classe > 55 && classe < 100) {
-        newclass = 'black';
-    }
+    });
     // console.log(classe);
-    $('.result').append(`<div class="entry">
-    <div class="roulette-tile">
-        <div class="sm-box ${newclass}">
-            <div class="number">${number}
-            </div>
-        </div>
-    </div>
-</div>`)
 
 
-}, 20000);
+
+}, 2000);
 
 

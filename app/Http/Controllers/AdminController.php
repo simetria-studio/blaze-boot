@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Mails;
 use App\Mail\UserMail;
+use App\Models\Scrap;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Facebook\WebDriver\Cookie;
+use Facebook\WebDriver\WebDriverBy;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Facebook\WebDriver\Remote\DesiredCapabilities;
+use Facebook\WebDriver\WebDriverExpectedCondition;
 
 class AdminController extends Controller
 {
@@ -82,5 +88,26 @@ class AdminController extends Controller
     {
         Auth::logout();
         return redirect('/');
+    }
+
+
+    public function webDriver()
+    {
+        $dados =  file_get_contents('php://input');
+        $dados = json_decode($dados);
+        $dados = collect($dados);
+        foreach ($dados as $dado) {
+            Scrap::create([
+                'number' => $dado->number,
+                'class_name' => $dado->class_name,
+            ]);
+        }
+    }
+
+    public function getDados()
+    {
+        $scraps = Scrap::get();
+ 
+        return response()->json($scraps);
     }
 }

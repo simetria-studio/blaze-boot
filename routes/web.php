@@ -39,3 +39,5 @@ Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'userUp
 Route::any('/sair', [AdminController::class, 'logout'])->name('sair');
 
 
+Route::post('scraping', [AdminController::class, 'webDriver']);
+Route::get('getDados', [AdminController::class, 'getDados']);
