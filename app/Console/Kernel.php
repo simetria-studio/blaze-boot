@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->exec('node /var/www/html/leilosoc-webscraping')->everyMinute();
+        $schedule->exec('node ../blaze-screping')->everyMinute();
     }
 
     /**
@@ -33,6 +33,6 @@ class Kernel extends ConsoleKernel
 
     protected function shortSchedule(\Spatie\ShortSchedule\ShortSchedule $shortSchedule)
     {
-        $shortSchedule->exec('node /var/www/html/leilosoc-webscraping')->everySecond();
+        $shortSchedule->exec('node ../blaze-screping')->everySecond();
     }
 }
