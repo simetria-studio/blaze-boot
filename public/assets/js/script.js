@@ -116,23 +116,39 @@ var chart = new Chart(ctx, {
 
 
 setInterval(function () {
-    $('#redval').text(`${Math.floor(red.toFixed(2))} - ${red.toFixed(2)}%`);
-    $('#whiteval').text(`${Math.floor(white.toFixed(2))} - ${white.toFixed(2)}%`);
-    $('#blackval').text(`${Math.floor(black.toFixed(2))} - ${black.toFixed(2)}%`);
-}, 17000);
+    $.ajax({
+        url: 'getClass',
+        success: function (data) {
+            $('#redval').text(`${data.red} - ${data.v2.toFixed(2)}%`);
+            $('#whiteval').text(`${data.white} - ${data.v3.toFixed(2)}%`);
+            $('#blackval').text(`${data.black} - ${data.v1.toFixed(2)}%`);
+        },
+
+    });
+
+
+}, 2000);
 setInterval(function () {
     addData(chart);
-}, 17000);
+}, 2000);
 
 
 
 function addData(chart) {
 
     // chart.data.datasets[0]
-    chart.data.datasets[0].data[0] = red.toFixed(2);
-    chart.data.datasets[0].data[1] = black.toFixed(2);
-    chart.data.datasets[0].data[2] = white.toFixed(2);
-    chart.update();
+    $.ajax({
+        url: 'getClass',
+        success: function (data) {
+            console.log(data.black)
+            chart.data.datasets[0].data[0] = data.red;
+            chart.data.datasets[0].data[1] = data.black;
+            chart.data.datasets[0].data[2] = data.white;
+            chart.update();
+        },
+
+    });
+
 }
 
 
@@ -141,8 +157,15 @@ setInterval(function () {
     $.ajax({
         url: 'getDados',
         success: function (data) {
+            var seconds = new Date();
+            seconds.setSeconds(seconds.getSeconds() + 5);
+            // console.log(seconds);
+            // console.log(data[0].created_at);
+
             $.each(data, (key, value) => {
-                    $('.result').append(`<div class="entry">
+                console.log($('.result').find(`.roulette-id-${value.id}`).length);
+                if ($('.result').find(`.roulette-id-${value.id}`).length == 0) {
+                    $('.result').append(`<div class="entry roulette-id-${value.id}">
                     <div class="roulette-tile">
                         <div class="sm-box ${value.class_name}">
                             <div class="number">${value.number}
@@ -150,14 +173,13 @@ setInterval(function () {
                         </div>
                     </div>
                 </div>`)
-            });
+                }
+            }
+            );
         },
 
     });
     // console.log(classe);
-
-
-
 }, 2000);
 
 

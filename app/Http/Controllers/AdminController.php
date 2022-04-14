@@ -91,23 +91,46 @@ class AdminController extends Controller
     }
 
 
-    public function webDriver()
+    public function webDriver(Request $request)
     {
-        $dados =  file_get_contents('php://input');
-        $dados = json_decode($dados);
-        $dados = collect($dados);
-        foreach ($dados as $dado) {
+        $dados =  $request->all();
+        $number = 0;
+        $date = Scrap::where('created_at', '>', date('Y-m-d H:i:s', strtotime('-33 seconds')))->where('number', $dados[0]['number'])->where('class_name', $dados[0]['class_name'])->get();
+        if ($date->count() == 0) {
+            if ($dados[0]['number'] == null) {
+                $number = 0;
+            } else {
+                $number = $dados[0]['number'];
+            }
             Scrap::create([
-                'number' => $dado->number,
-                'class_name' => $dado->class_name,
+                'number' => $number,
+                'class_name' => $dados[0]['class_name'],
             ]);
         }
     }
 
     public function getDados()
     {
-        $scraps = Scrap::get();
- 
+        $scraps = Scrap::latest('id')->limit(1)->get();
+
         return response()->json($scraps);
+    }
+
+    public function getClass()
+    {
+
+        $black = Scrap::select('class_name')->where('class_name', 'black')
+            ->get()->count();
+        $red = Scrap::select('class_name')->where('class_name', 'red')
+            ->get()->count();
+        $white = Scrap::select('class_name')->where('class_name', 'white')
+            ->get()->count();
+
+        $total = $black + $red + $white;
+        $v1 = ($black / $total) * 100;
+        $v2 = ($red / $total) * 100;
+        $v3 = ($white / $total) * 100;
+        $totalP = $v1 + $v2 + $v3;
+        return response()->json(get_defined_vars());
     }
 }
