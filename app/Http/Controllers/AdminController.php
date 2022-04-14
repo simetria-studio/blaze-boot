@@ -106,7 +106,7 @@ class AdminController extends Controller
                 ]);
             } else {
                 Scrap::create([
-                    'number' => 0,
+                    'number' => $dados[0]['number'],
                     'class_name' => $dados[0]['class_name'],
                 ]);
             }

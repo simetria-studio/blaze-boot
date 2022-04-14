@@ -84,7 +84,7 @@
                                 <div class="red"> </div>
                             </div>
                             <div class="mx-2 mt-2">
-                                <p id="redval">46 - 45,09%</p>
+                                <p id="redval">0 - 0%</p>
                             </div>
 
                         </div>
@@ -93,7 +93,7 @@
                                 <div class="white"> </div>
                             </div>
                             <div class="mx-2 mt-2">
-                                <p id="whiteval">5 - 6,78%</p>
+                                <p id="whiteval">0 - 0%</p>
                             </div>
 
                         </div>
@@ -102,7 +102,7 @@
                                 <div class="black"> </div>
                             </div>
                             <div class="mx-2 mt-2">
-                                <p id="blackval">48 - 43,07%</p>
+                                <p id="blackval">0 - 0%</p>
                             </div>
 
                         </div>
