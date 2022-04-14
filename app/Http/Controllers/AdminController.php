@@ -95,7 +95,7 @@ class AdminController extends Controller
     {
         $dados =  $request->all();
         $number = 0;
-        $date = Scrap::where('created_at', '>', date('Y-m-d H:i:s', strtotime('-33 seconds')))->where('number', $dados[0]['number'])->where('number', 0)->where('class_name', $dados[0]['class_name'])->get();
+        $date = Scrap::where('created_at', '>', date('Y-m-d H:i:s', strtotime('-33 seconds')))->where('number', $dados[0]['number'])->where('class_name', $dados[0]['class_name'])->get();
         if ($date->count() == 0) {
             if ($dados[0]['number'] == null) {
                 $number = 0;
