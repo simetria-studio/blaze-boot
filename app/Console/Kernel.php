@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        // $schedule->exec('node ../leilosoc-webscraping')->cron('1 * * * *');
+        $schedule->exec('node ../leilosoc-webscraping');
     }
 
     /**
@@ -31,8 +31,8 @@ class Kernel extends ConsoleKernel
         require base_path('routes/console.php');
     }
 
-    protected function shortSchedule(\Spatie\ShortSchedule\ShortSchedule $shortSchedule)
-    {
-        $shortSchedule->exec('node ../leilosoc-webscraping')->everySecond();
-    }
+    // protected function shortSchedule(\Spatie\ShortSchedule\ShortSchedule $shortSchedule)
+    // {
+    //     $shortSchedule->exec('node ../leilosoc-webscraping')->everySecond();
+    // }
 }
