@@ -97,15 +97,17 @@ class AdminController extends Controller
         $number = 0;
         $date = Scrap::where('created_at', '>', date('Y-m-d H:i:s', strtotime('-33 seconds')))->where('number', $dados[0]['number'])->where('class_name', $dados[0]['class_name'])->get();
         if ($date->count() == 0) {
-            if ($dados[0]['number'] == null) {
-                $number = 0;
-            } else {
-                $number = $dados[0]['number'];
+            if (!empty($date)) {
+                if ($dados[0]['number'] == null) {
+                    $number = 1;
+                } else {
+                    $number = $dados[0]['number'];
+                }
+                Scrap::create([
+                    'number' => $number,
+                    'class_name' => $dados[0]['class_name'],
+                ]);
             }
-            Scrap::create([
-                'number' => $number,
-                'class_name' => $dados[0]['class_name'],
-            ]);
         }
     }
 
