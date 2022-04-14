@@ -1,13 +1,16 @@
 body {
     font-family: "Roboto", sans-serif;
+    overflow: hidden;
 }
 
 .menu {
     background-color: #212529;
 }
 .logo-waltermark {
-    width: 270px;
+    width: 200px;
+    margin: 0 auto;
     img {
+        margin-top: 20px;
         width: 100%;
         filter: opacity(50%);
     }
@@ -59,6 +62,7 @@ body {
 .main {
     background: #0f1923;
     height: 100vh;
+    overflow: hidden;
     .main-grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
