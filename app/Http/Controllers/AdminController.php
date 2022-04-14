@@ -127,11 +127,11 @@ class AdminController extends Controller
         $white = Scrap::select('class_name')->where('class_name', 'white')
             ->get()->count();
 
-        // $total = $black + $red + $white;
-        // $v1 = ($black / $total) * 100;
-        // $v2 = ($red / $total) * 100;
-        // $v3 = ($white / $total) * 100;
-        // $totalP = $v1 + $v2 + $v3;
+        $total = $black + $red + $white;
+        $v1 = ($black / $total) * 100;
+        $v2 = ($red / $total) * 100;
+        $v3 = ($white / $total) * 100;
+        $totalP = $v1 + $v2 + $v3;
         return response()->json(get_defined_vars());
     }
 }
