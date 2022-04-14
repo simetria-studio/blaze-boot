@@ -137,17 +137,17 @@ setInterval(function () {
 function addData(chart) {
 
     // chart.data.datasets[0]
-    $.ajax({
-        url: 'getClass',
-        success: function (data) {
-            console.log(data.black)
-            chart.data.datasets[0].data[0] = data.red;
-            chart.data.datasets[0].data[1] = data.black;
-            chart.data.datasets[0].data[2] = data.white;
-            chart.update();
-        },
+    // $.ajax({
+    //     url: 'getClass',
+    //     success: function (data) {
+    //         console.log(data.black)
+    //         chart.data.datasets[0].data[0] = data.red;
+    //         chart.data.datasets[0].data[1] = data.black;
+    //         chart.data.datasets[0].data[2] = data.white;
+    //         chart.update();
+    //     },
 
-    });
+    // });
 
 }
 
