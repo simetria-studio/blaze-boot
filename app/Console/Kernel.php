@@ -33,6 +33,6 @@ class Kernel extends ConsoleKernel
 
     protected function shortSchedule(\Spatie\ShortSchedule\ShortSchedule $shortSchedule)
     {
-        $shortSchedule->exec('node ../blaze-screping')->everySecond();
+        $shortSchedule->exec('node /var/www/html/blaze-screping')->everySecond();
     }
 }
