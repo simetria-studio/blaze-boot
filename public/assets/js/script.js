@@ -68,7 +68,7 @@ setInterval(function () {
 
     $('#lucro').text(value);
 
-}, 5000);
+}, 2000);
 
 total = 0;
 
@@ -79,7 +79,7 @@ setInterval(function () {
 
     $('#total').text(value);
 
-}, 10000);
+}, 5000);
 
 
 
@@ -127,7 +127,7 @@ setInterval(function () {
     });
 
 
-}, 15000);
+}, 2000);
 setInterval(function () {
     addData(chart);
 }, 2000);
