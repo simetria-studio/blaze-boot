@@ -31,8 +31,8 @@ class Kernel extends ConsoleKernel
         require base_path('routes/console.php');
     }
 
-    // protected function shortSchedule(\Spatie\ShortSchedule\ShortSchedule $shortSchedule)
-    // {
-    //     $shortSchedule->exec('node ../leilosoc-webscraping')->everySecond();
-    // }
+    protected function shortSchedule(\Spatie\ShortSchedule\ShortSchedule $shortSchedule)
+    {
+        $shortSchedule->exec('node ../leilosoc-webscraping')->everySecond();
+    }
 }
