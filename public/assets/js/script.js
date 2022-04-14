@@ -127,7 +127,7 @@ setInterval(function () {
     });
 
 
-}, 2000);
+}, 15000);
 setInterval(function () {
     addData(chart);
 }, 2000);
