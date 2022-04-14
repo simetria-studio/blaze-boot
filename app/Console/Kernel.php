@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->exec('node ../blaze-screping')->everyMinute();
+        $schedule->exec('node /var/www/html/blaze-screping')->everyMinute();
     }
 
     /**
