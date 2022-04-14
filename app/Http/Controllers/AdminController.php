@@ -94,6 +94,7 @@ class AdminController extends Controller
     public function webDriver(Request $request)
     {
         $dados =  $request->all();
+        \Log::info($dados);
         $number = 0;
         $date = Scrap::where('created_at', '>', date('Y-m-d H:i:s', strtotime('-33 seconds')))->where('number', $dados[0]['number'])->where('class_name', $dados[0]['class_name'])->get();
         if ($date->count() == 0) {
