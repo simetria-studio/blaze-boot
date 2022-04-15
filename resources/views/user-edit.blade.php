@@ -13,7 +13,7 @@
                         <input type="text" name="name" class="form-control" value="{{ $user->name }}" placeholder="Nome">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="password" class="form-control"  placeholder="Senha">
+                        <input type="password" name="password" class="form-control"  placeholder="Senha">
                     </div>
                     <button type="submit" class="btn btn-primary">Editar</button>
                 </form>
