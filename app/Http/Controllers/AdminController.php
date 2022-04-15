@@ -66,7 +66,7 @@ class AdminController extends Controller
     }
     public function userUpdate(Request $request, $id)
     {
-        dd($request->input('password'));
+   
         $user = User::find($id);
 
 
