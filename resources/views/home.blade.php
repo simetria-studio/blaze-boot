@@ -115,7 +115,7 @@
 
             </div>
         @endif
-        <div class="instagram text-center mt-5 text-light">
+        <div class="instagram text-center mt-1 text-light">
             <a href="https://www.instagram.com/blaze.boot/" target="_blank"> <img width="30" src="{{ asset('assets/img/instagram.svg') }}" alt=""></a>
             <h4 class="my-2">@blaze.boot</h4>
         </div>
