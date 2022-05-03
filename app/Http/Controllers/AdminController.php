@@ -32,7 +32,8 @@ class AdminController extends Controller
         User::create([
             'email' => $request->email,
             'name' => $request->name,
-            'password' => Hash::make($random)
+            'password' => Hash::make($random),
+            'user_id' => auth()->user()->id
         ]);
 
         $mails = new Mails();
@@ -46,7 +47,7 @@ class AdminController extends Controller
 
     public function users()
     {
-        $users = User::all();
+        $users = User::where('user_id', auth()->user()->id)->get();
         return view('users', get_defined_vars());
     }
 
@@ -66,7 +67,7 @@ class AdminController extends Controller
     }
     public function userUpdate(Request $request, $id)
     {
-   
+
         $user = User::find($id);
 
 
